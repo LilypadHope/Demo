@@ -1,1 +1,42 @@
 # Demo
+:root{
+  --orange:#f0641c; --neon-green:#7cff00; --deep-green:#1b5e20;
+  --blue:#4a83ff; --blue-outline:#194b9f; --black:#000; --white:#fff;
+}
+*{box-sizing:border-box} html,body{height:100%;margin:0}
+.bg-orange{
+  background:var(--orange);
+  background-image:
+    radial-gradient(ellipse at 20% 10%,rgba(255,255,255,.06),transparent),
+    radial-gradient(ellipse at 80% 20%,rgba(0,0,0,.05),transparent);
+  font-family:'Fredoka',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+.container{max-width:1100px;margin:0 auto;padding:48px 24px 64px;text-align:left;position:relative}
+.cross{position:fixed;top:10px;left:50%;transform:translateX(-50%);font-weight:700;font-size:54px;line-height:1;color:var(--black);text-shadow:0 2px 0 rgba(0,0,0,.2);user-select:none;pointer-events:none}
+.title{font-family:'Luckiest Guy',cursive;font-size:clamp(48px,7vw,120px);margin:36px 0 12px;letter-spacing:1px}
+.tagline{font-family:'Luckiest Guy',cursive;font-size:clamp(24px,3.4vw,48px);line-height:1.05;margin:12px 0 36px}
+.bubble-green{
+  color:var(--neon-green);
+  -webkit-text-stroke:10px var(--black);
+  paint-order:stroke fill;
+  text-shadow:0 6px 0 rgba(0,0,0,.25), 0 0 0 var(--black), 0 0 18px rgba(27,94,32,.2);
+}
+.menu{margin-top:clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:clamp(24px,4vw,48px)}
+.menu-link{
+  display:inline-block;font-family:'Fredoka',sans-serif;font-weight:600;
+  font-size:clamp(28px,4.2vw,56px);text-decoration:none;color:var(--white);
+  padding:2px 6px;position:relative
+}
+.bubble-blue{
+  color:var(--blue);
+  -webkit-text-stroke:4px var(--blue-outline);
+  paint-order:stroke fill;
+  text-shadow:0 3px 0 rgba(0,0,0,.20), 0 0 0 var(--blue-outline), 0 0 8px rgba(25,75,159,.25);
+}
+.menu-link:hover,.menu-link:focus{
+  transform:translateY(-1px) scale(1.02);
+  text-shadow:0 6px 0 rgba(0,0,0,.22), 0 0 0 var(--blue-outline), 0 0 14px rgba(74,131,255,.55);
+  outline:none
+}
+.menu-link:focus-visible{outline:3px solid #fff;outline-offset:6px;border-radius:8px}
+@media (max-width:520px){.container{padding:36px 16px 56px}.cross{font-size:42px}}
