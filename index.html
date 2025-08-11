@@ -4,37 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LilyPad Corp</title>
+
+  <!-- Fun fonts for the headings/links -->
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Use the CSS you pasted earlier -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="home bg-orange">
 
-  <!-- background effects -->
+  <!-- Background effects (clouds + fireflies + bubbles) -->
   <div class="clouds" aria-hidden="true">
     <div class="cloud c1"></div>
     <div class="cloud c2"></div>
     <div class="cloud c3"></div>
   </div>
+
   <div class="fireflies" aria-hidden="true">
-    <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
-    <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
-  </div>
-  <div class="bubbles" aria-hidden="true">
-    <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
-    <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
+    <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+    <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
   </div>
 
-  <!-- logo + sound -->
-  <header class="hero">
+  <div class="bubbles" aria-hidden="true">
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+  </div>
+
+  <!-- Top logo + green headline -->
+  <header class="hero" role="banner">
     <div id="logoWrap" class="logo-wrap" role="button" tabindex="0" aria-label="Play ribbit">
-      <img src="images/IMG_4829.jpeg" alt="The LilyPad Corp logo" class="logo" />
+      <img class="logo" src="images/IMG_4829.jpeg" alt="The LilyPad Corp logo" />
     </div>
 
-    <p class="tagline bubble-green">Let’s learn<br/>something new!</p>
+    <!-- matches your screenshot style -->
+    <p class="tagline">Let’s learn<br/>something new!</p>
   </header>
 
-  <!-- main menu -->
-  <main class="container">
+  <!-- Main links (blue bubble style) -->
+  <main class="container" role="main">
     <nav class="menu" aria-label="Main sections">
       <a class="menu-link bubble-blue" href="humanitarian/index.html">Humanitarian Politics</a>
       <a class="menu-link bubble-blue" href="environmental.html">Environmental Politics</a>
@@ -42,7 +49,7 @@
     </nav>
   </main>
 
-  <!-- Ribbit audio (your exact filename with a space) -->
+  <!-- Ribbit audio (exact filename with a space) -->
   <audio id="ribbit" preload="auto">
     <source src="images/Frog%203.mp3" type="audio/mpeg" />
   </audio>
@@ -51,15 +58,21 @@
     const logo = document.getElementById('logoWrap');
     const ribbit = document.getElementById('ribbit');
 
-    async function playRibbit() {
-      try { ribbit.currentTime = 0; await ribbit.play(); } catch (_) {}
+    async function playRibbit(){
+      try { ribbit.currentTime = 0; await ribbit.play(); } catch(e){}
     }
 
-    // On logo click or keyboard
-    logo.addEventListener('click', () => { logo.classList.add('bounce'); playRibbit(); setTimeout(()=>logo.classList.remove('bounce'), 600); });
-    logo.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); logo.click(); }});
+    // Click/keyboard on the logo
+    logo.addEventListener('click', () => {
+      logo.classList.add('bounce');
+      playRibbit();
+      setTimeout(()=>logo.classList.remove('bounce'), 600);
+    });
+    logo.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); logo.click(); }
+    });
 
-    // Try autoplay, then fall back to first user interaction
+    // Try autoplay on load; fall back to first interaction
     window.addEventListener('load', async () => {
       try { await playRibbit(); }
       catch {
