@@ -1,25 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The LilyPad Corp.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The LilyPad Corp.</title>
+
+<!-- Google font for big, friendly headings (used lightly) -->
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Base / Theme ---------- */
+:root{
+  --orange:#f36a1f;
+  --orange2:#f06a1b;
+  --neon:#7cff00;
+  --blue:#4a83ff;
+  --ink:#000;
+  --card:#ffb56b;
+  --night:#0b1a33;
+  --firefly:#f7ff91;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:#111;
+  overflow-x:hidden;
+  background:
+    radial-gradient(120% 120% at 20% 10%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(120% 120% at 80% 85%, rgba(0,0,0,.06), transparent 60%),
+    linear-gradient( -3deg, var(--orange) 0%, var(--orange2) 100%);
+  animation:bgPulse 20s ease-in-out infinite alternate;
+}
+@keyframes bgPulse{
+  0%{filter:saturate(100%) brightness(100%)}
+  100%{filter:saturate(115%) brightness(105%)}
+}
+
+/* ---------- Clouds (top drift) ---------- */
+.clouds{position:fixed; inset:0 0 auto 0; height:140px; pointer-events:none; z-index:0}
+.cloud{
+  position:absolute; top:20px;
+  width:220px; height:80px; opacity:.2; filter:blur(0.5px);
+  background:
+    radial-gradient(circle at 30% 60%, #fff 35%, transparent 36%),
+    radial-gradient(circle at 55% 50%, #fff 40%, transparent 41%),
+    radial-gradient(circle at 75% 60%, #fff 30%, transparent 31%);
+  border-radius:50px;
+  animation:cloud 80s linear infinite;
+}
+.cloud.c2{top:70px; transform:scale(1.2); animation-duration:95s; opacity:.18}
+.cloud.c3{top:35px; transform:scale(0.9); animation-duration:70s; opacity:.16}
+@keyframes cloud{
+  0%{left:-260px}
+  100%{left:110%}
+}
+
+/* ---------- Bubbles (side float) ---------- */
+.bubbles{position:fixed; inset:auto 0 0 0; height:100%; pointer-events:none; z-index:0}
+.bubble{
+  position:absolute; bottom:-80px; left:var(--x,10%);
+  width:var(--s,12px); height:var(--s,12px); border-radius:50%;
+  border:2px solid rgba(255,255,255,.35);
+  background:rgba(255,255,255,.12);
+  animation:rise var(--t,16s) linear infinite;
+  filter:blur(.2px);
+}
+@keyframes rise{
+  to{transform:translateY(-110vh)}
+}
+
+/* ---------- Header / Logo zone ---------- */
+.header{
+  position:relative; z-index:1;
+  display:grid; place-items:center;
+  padding:28px 16px 18px;
+}
+.logo-wrap{
+  position:relative;
+  display:inline-block;
+  text-align:center;
+}
+.logo{
+  max-width:min(420px, 85vw);
+  height:auto;
+  display:block;
+  margin-inline:auto;
+  border-radius:16px;
+  box-shadow:
+    0 8px 0 rgba(0,0,0,.25),
+    0 0 0 8px rgba(0,0,0,.08);
+}
+.logo-wrap.bounce{animation:bounce 700ms cubic-bezier(.2,.6,.3,1.2)}
+@keyframes bounce{
+  0%{transform:translateY(0)}
+  30%{transform:translateY(-14px)}
+  55%{transform:translateY(4px)}
+  75%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+
+/* Frog blink (we mask two little eyelids over the frog area) */
+.blink{
+  position:absolute; right:14%; top:-4%;
+  width:70px; height:40px; pointer-events:none;
+  overflow:hidden;
+}
+.blink::before,.blink::after{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(0,0,0,.35) 0 40%, transparent 41%);
+  transform-origin:50% 0%;
+  animation:blink 7s infinite;
+}
+.blink::after{animation-delay:2s}
+@keyframes blink{
+  0%,97%,100%{transform:scaleY(0)}
+  98%{transform:scaleY(1)}
+}
+
+/* Water ripple under logo + floating lily pads */
+.pond{
+  position:relative; margin:10px auto 0; width:min(520px, 92vw); height:40px;
+  filter:drop-shadow(0 8px 0 rgba(0,0,0,.18));
+}
+.ripple{
+  position:absolute; inset:0; border-radius:999px;
+  background:
+    radial-gradient(closest-side, rgba(255,255,255,.5) 2px, transparent 3px) center/64px 64px,
+    radial-gradient(closest-side, rgba(255,255,255,.35) 2px, transparent 3px) center/90px 90px,
+    linear-gradient( to right, #2aa7ff, #66d1ff 60%, #2aa7ff);
+  opacity:.9; height:100%;
+  animation:pond 6s ease-in-out infinite;
+  border:4px solid #1d95ff; box-shadow:inset 0 0 18px rgba(255,255,255,.35);
+}
+@keyframes pond{
+  0%,100%{transform:scaleX(1)}
+  50%{transform:scaleX(1.04)}
+}
+/* floating lily pads as SVG backgrounds */
+.pad{
+  --sx: 0%;
+  position:absolute; top:-14px;
+  width:54px; height:34px; border-radius:50%;
+  background:
+   radial-gradient(ellipse at 60% 65%, #76ff3b 55%, #2c7b1a 56% 60%, transparent 61%),
+   radial-gradient(ellipse at 40% 35%, #34c924 60%, #195d11 61% 64%, transparent 65%);
+  box-shadow:0 4px 0 rgba(0,0,0,.25);
+  animation:float 9s ease-in-out infinite;
+}
+.pad.p2{left:20%; animation-duration:11s; transform:scale(.9)}
+.pad.p3{right:16%; animation-duration:10s; transform:scale(1.05)}
+@keyframes float{
+  0%,100%{transform:translateY(0) var(--s,scale(1))}
+  50%{transform:translateY(4px) var(--s,scale(1))}
+}
+
+/* Click ripple anywhere */
+.clickfx{
+  position:fixed; inset:0; pointer-events:none; z-index:3;
+}
+.clickfx span{
+  position:absolute; width:14px; height:14px; border-radius:50%;
+  border:3px solid rgba(255,255,255,.9);
+  transform:translate(-50%,-50%);
+  animation:clickRipple 650ms ease-out forwards;
+}
+@keyframes clickRipple{
+  0%{opacity:.9; transform:translate(-50%,-50%) scale(.2)}
+  100%{opacity:0; transform:translate(-50%,-50%) scale(7)}
+}
+
+/* Section card + neon list */
+.card{
+  position:relative; z-index:1;
+  width:min(900px, 92vw);
+  margin:26px auto 48px;
+  padding:18px 18px 24px;
+  background:rgba(255,255,255,.06);
+  border-radius:18px;
+  box-shadow: 0 0 0 3px rgba(255,255,255,.35),
+              0 12px 0 rgba(0,0,0,.25),
+              0 0 36px rgba(255,255,255,.15) inset;
+}
+.menu a{
+  display:block;
+  font-weight:800;
+  font-size:clamp(18px, 2.6vw, 28px);
+  color:#00ff66; text-decoration:none;
+  margin:.45em 0;
+  text-shadow:
+    2px 2px 0 #000,
+    4px 4px 0 #d200ff,
+    0 0 18px rgba(124,255,0,.55);
+  transition:transform .2s ease, filter .2s ease;
+}
+.menu a:focus,.menu a:active{transform:scale(1.03)}
+
+/* Night mode + fireflies */
+.toggle{
+  position:fixed; right:10px; bottom:10px; z-index:5;
+  background:#fff; border:none; border-radius:999px;
+  padding:10px 14px; font-weight:700; box-shadow:0 6px 0 rgba(0,0,0,.25);
+}
+.night body, .night{
+  background: radial-gradient(120% 120% at 20% 10%, rgba(255,255,255,.06), transparent 60%),
+              radial-gradient(120% 120% at 80% 85%, rgba(255,255,255,.06), transparent 60%),
+              linear-gradient(#071529, #0b1a33);
+}
+.fireflies{position:fixed; inset:0; pointer-events:none; z-index:2; display:none}
+.night .fireflies{display:block}
+.fly{
+  position:absolute; width:6px; height:6px; border-radius:50%;
+  background:radial-gradient(circle, var(--firefly), transparent 60%);
+  animation:fly 9s ease-in-out infinite;
+  opacity:.9;
+}
+.fly:nth-child(2){animation-duration:11s; transform:scale(1.1)}
+.fly:nth-child(3){animation-duration:10s; transform:scale(.95)}
+@keyframes fly{
+  0%{transform:translate(10vw,80vh)}
+  33%{transform:translate(30vw,20vh)}
+  66%{transform:translate(70vw,40vh)}
+  100%{transform:translate(90vw,10vh)}
+}
+
+/* Wave transition overlay */
+.wipe{
+  position:fixed; inset:0; pointer-events:none; z-index:6; background:transparent;
+}
+.wipe.active{
+  pointer-events:auto;
+  background:
+    radial-gradient(120% 90% at 50% 110%, #2aa7ff 10%, #66d1ff 40%, transparent 41%) bottom/180% 120% no-repeat,
+    radial-gradient(120% 90% at 50% 130%, #2aa7ff 10%, #66d1ff 40%, transparent 41%) bottom/180% 120% no-repeat;
+  animation:wave 600ms ease forwards;
+}
+@keyframes wave{
+  0%{transform:translateY(100%)}
+  100%{transform:translateY(0)}
+}
+</style>
 </head>
-<body class="bg-orange">
-  <div class="cross" aria-hidden="true">+</div>
-  <main class="container">
-    <div style="text-align:center; margin-top:20px;">
-    <img src="images/IMG_4829.jpeg" alt="The LilyPad Corp. Logo" style="max-width:400px; height:auto;">
-</div>
-    <p class="tagline bubble-green">Let's learn<br/>something new!</p>
-    <nav class="menu">
-     <a class="menu-link bubble-blue" href="humanitarian/index.html">Humanitarian Politics</a>
-</a>
-      <a class="menu-link bubble-blue" href="environmental.html">Environmental Politics</a>
-      <a class="menu-link bubble-blue" href="bible.html">Bible study</a>
+
+<body>
+  <!-- clouds -->
+  <div class="clouds" aria-hidden="true">
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+  </div>
+
+  <!-- rising bubbles -->
+  <div class="bubbles" aria-hidden="true">
+    <span class="bubble" style="--x:6%; --s:10px; --t:18s"></span>
+    <span class="bubble" style="--x:12%; --s:14px; --t:22s"></span>
+    <span class="bubble" style="--x:86%; --s:12px; --t:19s"></span>
+    <span class="bubble" style="--x:92%; --s:16px; --t:23s"></span>
+    <span class="bubble" style="--x:50%; --s:10px; --t:16s"></span>
+  </div>
+
+  <!-- header with logo / frog -->
+  <header class="header">
+    <div class="logo-wrap" id="logoWrap" title="Ribbit!">
+      <img class="logo" src="images/IMG_4829.jpeg" alt="The LilyPad Corp. Logo" />
+      <!-- eyelid blink overlay (positioned near frog on the logo) -->
+      <span class="blink" aria-hidden="true"></span>
+    </div>
+
+    <!-- pond under logo -->
+    <div class="pond" aria-hidden="true">
+      <div class="ripple"></div>
+      <span class="pad p1" style="left:8%; --s:scale(1.0)"></span>
+      <span class="pad p2"></span>
+      <span class="pad p3"></span>
+    </div>
+  </header>
+
+  <!-- main card with links -->
+  <main class="card">
+    <nav class="menu" aria-label="Sections">
+      <a href="humanitarian/index.html">• Humanitarian Politics</a>
+      <a href="environmental.html">• Environmental Politics</a>
+      <a href="bible.html">• Bible Study</a>
     </nav>
   </main>
+
+  <!-- click ripple container -->
+  <div class="clickfx" id="clickfx"></div>
+
+  <!-- night mode fireflies -->
+  <div class="fireflies" aria-hidden="true">
+    <span class="fly"></span><span class="fly"></span><span class="fly"></span>
+  </div>
+
+  <!-- wave transition overlay -->
+  <div class="wipe" id="wipe"></div>
+
+  <!-- ribbit sound (optional file) -->
+  <audio id="ribbit" preload="auto">
+    <source src="images/ribbit.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Night mode toggle -->
+  <button class="toggle" id="toggle">Night mode</button>
+
+<script>
+/* Play ribbit + bounce when logo tapped */
+const logoWrap = document.getElementById('logoWrap');
+const ribbit = document.getElementById('ribbit');
+logoWrap.addEventListener('click', () => {
+  logoWrap.classList.remove('bounce'); void logoWrap.offsetWidth; logoWrap.classList.add('bounce');
+  try { ribbit.currentTime = 0; ribbit.play(); } catch(e){}
+});
+
+/* Click ripple anywhere */
+const fx = document.getElementById('clickfx');
+document.addEventListener('click', (e)=>{
+  const s = document.createElement('span');
+  s.style.left = e.clientX+'px';
+  s.style.top  = e.clientY+'px';
+  fx.appendChild(s);
+  setTimeout(()=>s.remove(), 700);
+});
+
+/* Night mode toggle */
+const btn = document.getElementById('toggle');
+btn.addEventListener('click', ()=>{
+  document.documentElement.classList.toggle('night');
+  btn.textContent = document.documentElement.classList.contains('night') ? 'Day mode' : 'Night mode';
+});
+
+/* Wave transition on link clicks */
+const wipe = document.getElementById('wipe');
+document.querySelectorAll('a[href]').forEach(a=>{
+  a.addEventListener('click', (ev)=>{
+    // only internal links
+    const url = a.getAttribute('href');
+    if(url && !url.startsWith('http') && !url.startsWith('#')){
+      ev.preventDefault();
+      wipe.classList.add('active');
+      setTimeout(()=>{ window.location.href = url; }, 580);
+    }
+  });
+});
+</script>
 </body>
 </html>
