@@ -267,3 +267,11 @@ a:focus-visible{ outline:3px solid var(--neon-green); outline-offset:4px; }
     1px 1px 0 #000, -1px 1px 0 #000,
     1px -1px 0 #000, -1px -1px 0 #000;
 }
+/* Make menus always tappable above effects */
+.clouds, .fireflies, .bubbles { pointer-events: none; z-index: 0; }
+.home .menu, 
+.home .menu a,
+.list-links, 
+.list-links a { position: relative; z-index: 50; pointer-events: auto; }
+
+.hero, #logoWrap { position: relative; z-index: 1; }  /* logo stays under menu area */
