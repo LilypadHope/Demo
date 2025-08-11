@@ -258,16 +258,12 @@ html {
 }
 .arrow-container {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.arrow {
-  font-size: 3em; /* size of arrows */
-  color: yellow;
-  font-weight: bold;
-  text-shadow: 
-    0 0 5px #ff0, 
-    0 0 10px #ff0, 
-    0 0 15px #ff0;
-  border-radius: 10px;
+.cartoon-arrow {
+  width: 80px; /* adjust size */
+  height: auto;
+  margin: 0 10px;
+  filter: drop-shadow(0 0 5px yellow) drop-shadow(0 0 10px yellow);
 }
