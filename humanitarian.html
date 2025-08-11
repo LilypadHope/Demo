@@ -1,44 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humanitarian Politics</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body {
-      background-color: var(--orange);
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      gap: clamp(24px, 4vw, 48px);
-      padding: 40px 20px;
-    }
-    .menu-link {
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body class="bg-orange">
-  <div class="cross" aria-hidden="true">+</div>
-  <main class="container">
-    <h1 class="title bubble-green hero" data-text="Humanitarian Politics">
-      <span class="ink">Humanitarian Politics</span>
-    </h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humanitarian Politics</title>
+    <link rel="stylesheet" href="styles.css?v=7">
 
-    <nav class="menu">
-      <a class="menu-link bubble-blue" href="child-soldiers.html">Child Soldiers and Youth in Armed Conflict</a>
-      <a class="menu-link bubble-blue" href="civil-wars.html">Civil Wars and Humanitarian Interventions</a>
-      <a class="menu-link bubble-blue" href="environmental-displacement.html">Environmental Displacement and Refugees</a>
-      <a class="menu-link bubble-blue" href="refugee-asylum-law.html">Refugee and Asylum Law</a>
-    </nav>
-  </main>
+    <style>
+        body {
+            background-color: orange;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 30px;
+            color: #9C27B0; /* purple */
+            text-shadow: 2px 2px #000;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 50px;
+        }
+
+        li {
+            font-size: 1.3em;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 0.8s forwards;
+        }
+
+        /* Animation delay for each item */
+        li:nth-child(1) { animation-delay: 0.2s; }
+        li:nth-child(2) { animation-delay: 0.6s; }
+        li:nth-child(3) { animation-delay: 1.0s; }
+        li:nth-child(4) { animation-delay: 1.4s; }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        li a {
+            text-decoration: none;
+            color: #00ff00;
+            text-shadow: 1px 1px #000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HUMANITARIAN POLITICS</h1>
+
+    <ul>
+        <li><a href="humanitarian/child-soldiers.html">Child Soldiers and Youth in Armed Conflict</a></li>
+        <li><a href="humanitarian/civil-wars.html">Civil Wars and Humanitarian Interventions</a></li>
+        <li><a href="humanitarian/environmental-refugees.html">Environmental Displacement and Refugees</a></li>
+        <li><a href="humanitarian/refugee-law.html">Refugee and Asylum Law</a></li>
+    </ul>
+
 </body>
 </html>
