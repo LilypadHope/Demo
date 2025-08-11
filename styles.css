@@ -45,18 +45,18 @@
   text-align:center;
   margin-left:auto;
   margin-right:auto;
-  position: relative;         /* anchors the splash layer */
+  position: relative;
   will-change: transform, opacity, color, text-shadow;
   animation:
     heroBounceIn 1.05s cubic-bezier(.22,1.3,.32,1) both,
-    heroRattle   .55s ease-in-out 1 1.05s both,
-    colorMorph   .9s ease-in-out  .15s both; /* blue -> green */
+    heroRattle   .55s ease-in-out 1 1.05s both;
 }
 
 /* Start as blue text, end neon green; keep the thick black outline from .bubble-green */
 .title.hero .ink{
   display:inline-block;
   color: var(--blue);
+  animation: colorMorph .9s ease-in-out .15s both; /* ADDED */
 }
 
 /* Blue liquid splash ‘behind’ the text that bursts and fades */
@@ -122,9 +122,3 @@
   100% { transform: translate(-50%,-50%) scale(1.28); opacity:0; filter: blur(3px); }
 }
 
-/* Respect users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .title.hero{ animation:none; }
-  .title.hero::before{ content:none; }
-  .title.hero .ink{ color: var(--neon-green); }
-}
