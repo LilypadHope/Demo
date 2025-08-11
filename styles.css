@@ -174,3 +174,77 @@
   70%  { opacity:1; transform: translateX(6px); }
   100% { opacity:1; transform: translateX(0); }
 }
+/* ===== Article layout (image + long text) ===== */
+.article {
+  max-width: 75ch;
+  margin: 14px auto 14vh;
+  font-family: 'Fredoka', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.article .hero-img {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  display: block;
+  margin: 10px auto 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+}
+
+/* Neon paragraph style to match your look */
+.article .neon-paragraph {
+  color: var(--neon-green);
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: 3px var(--black);
+  paint-order: stroke fill;
+  text-shadow:
+    0 3px 0 rgba(0,0,0,.18),
+    0 0 18px rgba(186, 0, 255, .50); /* magenta glow */
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.45;
+  margin: 0 0 20px;
+}
+
+/* Sticky back link (optional) */
+.back-wrap {
+  position: sticky;
+  bottom: 16px;
+  padding-top: 12px;
+}
+
+/* ===== Cartoon scrollbar (desktop/Android Chromium, not iOS Safari) ===== */
+html {
+  scrollbar-width: thin;                 /* Firefox */
+  scrollbar-color: var(--neon-green) transparent;
+}
+
+/* Chrome/Edge/Opera (WebKit/Blink) */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  border: 3px solid #fff;               /* white outline */
+  background:
+    linear-gradient(var(--neon-green), var(--neon-green)),
+    linear-gradient(var(--blue), var(--blue)),
+    linear-gradient(var(--blue), var(--blue)),
+    linear-gradient(var(--blue), var(--blue));
+  /* 3 blue stripes on a green thumb */
+  background-size:
+    100% 100%,      /* green base */
+    70% 4px,        /* stripe 1 */
+    70% 4px,        /* stripe 2 */
+    70% 4px;        /* stripe 3 */
+  background-position:
+    center center,
+    center 30%,
+    center 50%,
+    center 70%;
+  background-repeat: no-repeat;
+  box-shadow: 0 2px 0 rgba(0,0,0,.25) inset, 0 0 12px rgba(0,0,0,.15);
+}
