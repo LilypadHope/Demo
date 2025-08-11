@@ -1,99 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Child Soldiers and Youth in Armed Conflict</title>
-
-  <!-- Google Font -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LilyPad Corp</title>
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="../../styles.css">
-
   <style>
-    body.bg-orange {
-      background-color: #e26a1b;
+    body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #3a0066; /* deep purple */
       text-align: center;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    .cross {
-      font-size: 2rem;
-      font-weight: bold;
-      padding: 0.5rem;
+    /* Logo styles */
+    #logoWrap {
+      display: inline-block;
+      margin-top: 20px;
+      cursor: pointer;
+      animation: fadeIn 1s ease-in-out;
+      z-index: 5;
+      position: relative;
     }
 
-    .title {
+    #logoWrap img {
+      max-width: 280px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Bounce animation */
+    .bounce {
+      animation: bounceAnim 0.5s ease;
+    }
+
+    @keyframes bounceAnim {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Neon headings */
+    h1 {
       font-family: 'Luckiest Guy', cursive;
-      font-size: clamp(2rem, 6vw, 4rem);
-      color: #a020f0;
-      text-shadow: 3px 3px 0 #32cd32, 6px 6px 0 #000000;
-      margin: 0.5em auto;
-      max-width: 90%;
-      animation: slideIn 1.2s ease-out forwards;
+      font-size: clamp(28px, 5vw, 60px);
+      color: #ff00ff;
+      text-shadow: 3px 3px 0 #00ff00, -3px -3px 0 #00ff00;
+      margin: 20px 0;
     }
 
     .list-links {
-      margin-top: clamp(18px, 3vw, 28px);
-    }
-
-    .neon-link {
+      font-size: clamp(18px, 3vw, 26px);
+      margin-top: 20px;
+      text-align: left;
       display: inline-block;
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      font-weight: bold;
-      margin: 0.3em auto;
-      padding: 0.3em 0;
-      color: #00ff66;
-      text-decoration: none;
-      text-shadow: 2px 2px 0 #000, 4px 4px 0 #ff00ff;
-      transition: transform 0.2s ease;
-      opacity: 0;
-      transform: translateY(20px);
     }
 
-    .neon-link:hover,
-    .neon-link:focus {
+    .list-links a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      font-weight: bold;
+      color: #ff66ff;
+      text-shadow: 2px 2px 0 #00ff00;
+      transition: transform 0.2s ease;
+    }
+
+    .list-links a:hover {
       transform: scale(1.05);
     }
 
-    /* Slide-in animation for links */
-    @keyframes slideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* Floating frog styles */
+    .frog {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      z-index: 1;
+      pointer-events: none;
+      animation: floatFrogs linear infinite;
     }
 
-    /* Delay each link for staggered animation */
-    .list-links a:nth-child(1) { animation: slideIn 0.6s ease-out 0.3s forwards; }
-    .list-links a:nth-child(2) { animation: slideIn 0.6s ease-out 0.5s forwards; }
-    .list-links a:nth-child(3) { animation: slideIn 0.6s ease-out 0.7s forwards; }
-    .list-links a:nth-child(4) { animation: slideIn 0.6s ease-out 0.9s forwards; }
-    .list-links a:nth-child(5) { animation: slideIn 0.6s ease-out 1.1s forwards; }
-    .list-links a:nth-child(6) { animation: slideIn 0.6s ease-out 1.3s forwards; }
-
+    @keyframes floatFrogs {
+      0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120px) rotate(360deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
-<body class="bg-orange">
+<body>
 
-  <div class="cross" aria-hidden="true">+</div>
+  <!-- Logo clickable for sound -->
+  <div id="logoWrap">
+    <img src="images/IMG_4829.jpeg" alt="LilyPad Corp Logo">
+  </div>
 
-  <h1 class="title">CHILD SOLDIERS AND YOUTH IN ARMED CONFLICT</h1>
+  <!-- Main title -->
+  <h1>CHILD SOLDIERS AND YOUTH IN ARMED CONFLICT</h1>
 
-  <nav class="list-links" aria-label="Sections">
-    <a class="neon-link" href="evolution.html">• The Evolution of Child Soldiering</a>
-    <a class="neon-link" href="definition.html">• The Modern Definition of A Child Soldier</a>
-    <a class="neon-link" href="recruitment.html">• Armed Groups and Recruitment Strategies</a>
-    <a class="neon-link" href="drivers.html">• Social, Economic, and Political Drivers</a>
-    <a class="neon-link" href="law-crc.html">• International Law, Geneva Conventions and the CRC</a>
-    <a class="neon-link" href="icc-rome.html">• Rome Statute and the ICC, Prosecuting Recruitment</a>
-  </nav>
+  <!-- Links list -->
+  <div class="list-links">
+    <a href="#">• The Evolution of Child Soldiering</a>
+    <a href="#">• The Modern Definition of A Child Soldier</a>
+    <a href="#">• Armed Groups and Recruitment Strategies</a>
+    <a href="#">• Social, Economic, and Political Drivers</a>
+    <a href="#">• International Law, Geneva Conventions and the CRC</a>
+    <a href="#">• Rome Statute and the ICC, Prosecuting Recruitment</a>
+  </div>
 
+  <!-- Ribbit audio -->
+  <audio id="ribbit" preload="auto">
+    <source src="images/Frog%203.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const logoWrap = document.getElementById('logoWrap');
+    const ribbitEl = document.getElementById('ribbit');
+
+    // Play ribbit when clicking the logo
+    if (logoWrap && ribbitEl) {
+      logoWrap.addEventListener('click', async () => {
+        logoWrap.classList.remove('bounce');
+        void logoWrap.offsetWidth;
+        logoWrap.classList.add('bounce');
+
+        try {
+          ribbitEl.currentTime = 0;
+          await ribbitEl.play();
+        } catch (e) {
+          console.debug('Audio play blocked:', e);
+        }
+      });
+    }
+
+    // Try to play automatically on page load
+    window.addEventListener('load', async () => {
+      try {
+        ribbitEl.currentTime = 0;
+        await ribbitEl.play();
+      } catch (e) {
+        console.debug('Autoplay may be blocked until user interacts:', e);
+      }
+    });
+
+    // Floating frogs generator
+    function createFrog() {
+      const frog = document.createElement('img');
+      frog.src = 'images/frog-icon.png'; // Replace with your frog image
+      frog.classList.add('frog');
+
+      const size = Math.random() * 30 + 30; // 30-60px
+      frog.style.width = size + 'px';
+      frog.style.height = 'auto';
+
+      frog.style.left = Math.random() * window.innerWidth + 'px';
+      frog.style.animationDuration = (Math.random() * 5 + 5) + 's';
+
+      document.body.appendChild(frog);
+
+      setTimeout(() => {
+        frog.remove();
+      }, 10000);
+    }
+
+    setInterval(createFrog, 1500); // One frog every 1.5s
+  </script>
 </body>
 </html>
