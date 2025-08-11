@@ -59,8 +59,9 @@
 /* Start as blue text, end neon green; keep the thick black outline from .bubble-green */
 .title.hero .ink{
   display:inline-block;
-  color: var(--blue);
-  animation: colorMorph .9s ease-in-out .15s both; /* ADDED */
+  color: var(--blue);                       /* starts blue */
+  -webkit-text-fill-color: currentColor;   /* important for Safari */
+  animation: colorMorph .9s ease-in-out .15s forwards;  /* ends purple */
 }
 
 /* Blue liquid splash ‘behind’ the text that bursts and fades */
@@ -113,9 +114,9 @@
 
 /* Blue → Neon green “drying” color shift (works with your existing black stroke) */
 @keyframes colorMorph{
-  0%   { color: var(--blue); text-shadow: 0 6px 0 rgba(0,0,0,.25); }
-  60%  { color: #67ff00;     text-shadow: 0 6px 0 rgba(0,0,0,.22); }
-  100% { color: var(--neon-green); text-shadow: 0 6px 0 rgba(0,0,0,.22); }
+  0%   { color: var(--blue); }
+  60%  { color: var(--blue); }
+  100% { color: var(--final-purple); }
 }
 
 /* Splash layer expands and “splashes off” then fades */
