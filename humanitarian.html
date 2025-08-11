@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Humanitarian Politics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: var(--orange);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: clamp(24px, 4vw, 48px);
+      padding: 40px 20px;
+    }
+    .menu-link {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body class="bg-orange">
+  <div class="cross" aria-hidden="true">+</div>
+  <main class="container">
+    <h1 class="title bubble-green hero" data-text="Humanitarian Politics">
+      <span class="ink">Humanitarian Politics</span>
+    </h1>
 
+    <nav class="menu">
+      <a class="menu-link bubble-blue" href="child-soldiers.html">Child Soldiers and Youth in Armed Conflict</a>
+      <a class="menu-link bubble-blue" href="civil-wars.html">Civil Wars and Humanitarian Interventions</a>
+      <a class="menu-link bubble-blue" href="environmental-displacement.html">Environmental Displacement and Refugees</a>
+      <a class="menu-link bubble-blue" href="refugee-asylum-law.html">Refugee and Asylum Law</a>
+    </nav>
+  </main>
+</body>
+</html>
