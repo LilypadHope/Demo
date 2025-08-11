@@ -3,29 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Child Soldiers and Youth in Armed Conflict</title>
+  <title>LilyPad Corp</title>
 
-  <!-- site-wide styles -->
-  <link rel="stylesheet" href="../../styles.css" />
+  <!-- Fun fonts for the headings/links -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@600;700&display=swap" rel="stylesheet" />
 
-  <style>
-    /* Page-local tweaks for this list screen */
-    .hero { text-align:center; padding-top:18px; }
-    .title { margin: 6px 16px 8px; }
-    .list-links{ margin: clamp(14px,2.5vw,22px) 0 8px; }
-    .list-links a{
-      display:block;
-      margin: 18px 0 24px;
-      text-decoration:none;
-      font-weight:800;
-      font-size: clamp(22px,3.2vw,44px);
-      line-height:1.18;
-    }
-  </style>
+  <!-- Use the CSS you pasted earlier -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-orange">
+<body class="home bg-orange">
 
-  <!-- Background effects (don’t block clicks) -->
+  <!-- Background effects (clouds + fireflies + bubbles) -->
   <div class="clouds" aria-hidden="true">
     <div class="cloud c1"></div>
     <div class="cloud c2"></div>
@@ -42,52 +30,55 @@
     <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
   </div>
 
-  <header class="hero">
-    <h1 class="title bubble-green" id="tap-to-ribbit">Child Soldiers and Youth in Armed Conflict</h1>
+  <!-- Top logo + green headline -->
+  <header class="hero" role="banner">
+    <div id="logoWrap" class="logo-wrap" role="button" tabindex="0" aria-label="Play ribbit">
+      <img class="logo" src="images/IMG_4829.jpeg" alt="The LilyPad Corp logo" />
+    </div>
+
+    <!-- matches your screenshot style -->
+    <p class="tagline">Let’s learn<br/>something new!</p>
   </header>
 
-  <main class="container">
-    <nav class="list-links" aria-label="Sections">
-      <a class="menu-link bubble-blue" href="evolution.html">• The Evolution of Child Soldiering</a>
-      <a class="menu-link bubble-blue" href="definition.html">• The Modern Definition of A Child Soldier</a>
-      <a class="menu-link bubble-blue" href="recruitment.html">• Armed Groups and Recruitment Strategies</a>
-      <a class="menu-link bubble-blue" href="drivers.html">• Social, Economic, and Political Drivers</a>
-      <a class="menu-link bubble-blue" href="law-crc.html">• International Law, Geneva Conventions and the CRC</a>
-      <a class="menu-link bubble-blue" href="icc-rome.html">• Rome Statute and the ICC, Prosecuting Recruitment</a>
+  <!-- Main links (blue bubble style) -->
+  <main class="container" role="main">
+    <nav class="menu" aria-label="Main sections">
+      <a class="menu-link bubble-blue" href="humanitarian/index.html">Humanitarian Politics</a>
+      <a class="menu-link bubble-blue" href="environmental.html">Environmental Politics</a>
+      <a class="menu-link bubble-blue" href="bible.html">Bible study</a>
     </nav>
-
-    <p style="margin-top:24px">
-      <a class="menu-link bubble-blue" href="../index.html">← Back to Humanitarian Politics</a>
-    </p>
   </main>
 
-  <!-- Frog sound (autoplay when allowed; also on headline tap) -->
+  <!-- Ribbit audio (exact filename with a space) -->
   <audio id="ribbit" preload="auto">
-    <source src="../../images/Frog%203.mp3" type="audio/mpeg" />
+    <source src="images/Frog%203.mp3" type="audio/mpeg" />
   </audio>
+
   <script>
+    const logo = document.getElementById('logoWrap');
     const ribbit = document.getElementById('ribbit');
-    const title = document.getElementById('tap-to-ribbit');
 
     async function playRibbit(){
       try { ribbit.currentTime = 0; await ribbit.play(); } catch(e){}
     }
 
-    // Try autoplay; if blocked, play on first interaction
+    // Click/keyboard on the logo
+    logo.addEventListener('click', () => {
+      logo.classList.add('bounce');
+      playRibbit();
+      setTimeout(()=>logo.classList.remove('bounce'), 600);
+    });
+    logo.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); logo.click(); }
+    });
+
+    // Try autoplay on load; fall back to first interaction
     window.addEventListener('load', async () => {
       try { await playRibbit(); }
       catch {
         const once = () => { playRibbit(); window.removeEventListener('pointerdown', once, {once:true}); };
         window.addEventListener('pointerdown', once, {once:true});
       }
-    });
-
-    // Also play if the big title is tapped / keyboard-activated
-    title.tabIndex = 0;
-    title.setAttribute('role','button');
-    title.addEventListener('click', playRibbit);
-    title.addEventListener('keydown', (e)=> {
-      if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playRibbit(); }
     });
   </script>
 </body>
