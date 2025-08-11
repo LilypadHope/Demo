@@ -126,4 +126,51 @@
   65%  { transform: translate(-50%,-48%) scale(1.18) rotate(0.4deg);  opacity:.55; filter: blur(2px); }
   100% { transform: translate(-50%,-50%) scale(1.28); opacity:0; filter: blur(3px); }
 }
+/* --- Animated neon-green list links that slide in one-by-one --- */
+.list-links{
+  margin-top: clamp(18px,3vw,28px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px,2.2vw,18px);
+}
 
+.neon-link{
+  display: inline-block;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: clamp(20px, 2.8vw, 28px);
+  text-decoration: none;
+  color: var(--neon-green);
+  -webkit-text-fill-color: currentColor;
+  -webkit-text-stroke: 3px var(--black);
+  paint-order: stroke fill;
+  text-shadow:
+    0 3px 0 rgba(0,0,0,.18),
+    0 0 16px rgba(186, 0, 255, .45); /* magenta glow like your screenshot */
+  opacity: 0;
+  transform: translateX(-42px);
+  animation: slideIn .6s ease-out forwards; /* medium speed */
+}
+
+.neon-link:hover, .neon-link:focus{
+  transform: translateX(-2px) scale(1.02);
+  text-shadow:
+    0 6px 0 rgba(0,0,0,.22),
+    0 0 22px rgba(186,0,255,.60);
+  outline: none;
+}
+
+/* Staggered arrivals */
+.list-links a:nth-child(1){ animation-delay: .10s; }
+.list-links a:nth-child(2){ animation-delay: .26s; }
+.list-links a:nth-child(3){ animation-delay: .42s; }
+.list-links a:nth-child(4){ animation-delay: .58s; }
+.list-links a:nth-child(5){ animation-delay: .74s; }
+.list-links a:nth-child(6){ animation-delay: .90s; }
+/* add more nth-child rules later if you add more items */
+
+@keyframes slideIn{
+  0%   { opacity:0; transform: translateX(-42px); }
+  70%  { opacity:1; transform: translateX(6px); }
+  100% { opacity:1; transform: translateX(0); }
+}
