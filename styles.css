@@ -256,3 +256,18 @@ html {
   font-size: 1.3em;
   line-height: 1.6;
 }
+.arrow-container {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.arrow {
+  font-size: 3em; /* size of arrows */
+  color: yellow;
+  font-weight: bold;
+  text-shadow: 
+    0 0 5px #ff0, 
+    0 0 10px #ff0, 
+    0 0 15px #ff0;
+  border-radius: 10px;
+}
