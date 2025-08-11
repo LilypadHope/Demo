@@ -39,3 +39,92 @@
 }
 .menu-link:focus-visible{outline:3px solid #fff;outline-offset:6px;border-radius:8px}
 @media (max-width:520px){.container{padding:36px 16px 56px}.cross{font-size:42px}}
+/* === HERO: center + bounce + blue splash that dries to green === */
+.title.hero{
+  display:block;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+  position: relative;         /* anchors the splash layer */
+  will-change: transform, opacity, color, text-shadow;
+  animation:
+    heroBounceIn 1.05s cubic-bezier(.22,1.3,.32,1) both,
+    heroRattle   .55s ease-in-out 1 1.05s both,
+    colorMorph   .9s ease-in-out  .15s both; /* blue -> green */
+}
+
+/* Start as blue text, end neon green; keep the thick black outline from .bubble-green */
+.title.hero .ink{
+  display:inline-block;
+  color: var(--blue);
+}
+
+/* Blue liquid splash ‘behind’ the text that bursts and fades */
+.title.hero::before{
+  content: attr(data-text);         /* echo the same title as a blue layer */
+  position:absolute;
+  left:50%; top:50%;
+  transform: translate(-50%,-50%);
+  /* Render as blue, slightly blurred, under the main text */
+  color: #4a83ff;
+  -webkit-text-stroke: 10px rgba(0,0,0,0); /* no outline on splash layer */
+  filter: blur(1.2px) saturate(1.2);
+  opacity: .85;
+  pointer-events: none;
+  /* Make it feel “liquid” with a wavy mask via text-shadow layering */
+  text-shadow:
+    0 0 0 #4a83ff,
+    0 12px 0 rgba(74,131,255,.50),
+    0 -10px 0 rgba(74,131,255,.35),
+    8px 4px 0 rgba(74,131,255,.35),
+    -8px -6px 0 rgba(74,131,255,.30);
+  animation:
+    splashBurst .75s ease-out .05s both;
+  z-index: 0;
+}
+
+/* Ensure the main neon-green layer sits above the splash */
+.title.hero .ink,
+.title.hero{
+  z-index: 1;
+}
+
+/* Fade + bounce to center (entrance) */
+@keyframes heroBounceIn{
+  0%   { opacity:0; transform: translateY(-40px) scale(.88); }
+  60%  { opacity:1; transform: translateY(10px)  scale(1.06); }
+  80%  {             transform: translateY(-6px) scale(.98); }
+  100% {             transform: translateY(0)    scale(1); }
+}
+
+/* Tiny “rattle” that settles gently */
+@keyframes heroRattle{
+  0%   { transform: translateY(0) rotate(0deg); }
+  20%  { transform: translateY(-2px) rotate(-1.2deg); }
+  40%  { transform: translateY(2px)  rotate(1deg); }
+  60%  { transform: translateY(-1px) rotate(-.6deg); }
+  80%  { transform: translateY(1px)  rotate(.4deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Blue → Neon green “drying” color shift (works with your existing black stroke) */
+@keyframes colorMorph{
+  0%   { color: var(--blue); text-shadow: 0 6px 0 rgba(0,0,0,.25); }
+  60%  { color: #67ff00;     text-shadow: 0 6px 0 rgba(0,0,0,.22); }
+  100% { color: var(--neon-green); text-shadow: 0 6px 0 rgba(0,0,0,.22); }
+}
+
+/* Splash layer expands and “splashes off” then fades */
+@keyframes splashBurst{
+  0%   { transform: translate(-50%,-50%) scale(.96); opacity:.9; filter: blur(1.4px); }
+  40%  { transform: translate(-50%,-54%) scale(1.10) rotate(-0.6deg); opacity:.8; }
+  65%  { transform: translate(-50%,-48%) scale(1.18) rotate(0.4deg);  opacity:.55; filter: blur(2px); }
+  100% { transform: translate(-50%,-50%) scale(1.28); opacity:0; filter: blur(3px); }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .title.hero{ animation:none; }
+  .title.hero::before{ content:none; }
+  .title.hero .ink{ color: var(--neon-green); }
+}
