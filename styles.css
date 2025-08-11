@@ -238,3 +238,32 @@ a:focus-visible{ outline:3px solid var(--neon-green); outline-offset:4px; }
   70%{transform:translateY(6px)}
   100%{transform:translateY(0)}
 }
+/* --- Reading page image + text styles --- */
+.read-hero{
+  width:100%;
+  max-width:980px;
+  display:block;
+  margin:12px auto 18px;
+  border-radius:12px;
+  box-shadow:0 8px 0 rgba(0,0,0,.22);
+}
+
+.read-body{
+  max-width:75ch;
+  margin:20px auto 12vh;
+  padding:0 16px;
+
+  /* Georgia, bold, medium blue, with black outline */
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: clamp(18px,2.2vw,22px);
+  line-height: 1.65;
+  color: #2d6cff; /* medium hue blue */
+
+  /* cross-browser outline using shadows */
+  text-shadow:
+    1px 0   0 #000, -1px 0   0 #000,
+    0   1px 0 #000,  0  -1px 0 #000,
+    1px 1px 0 #000, -1px 1px 0 #000,
+    1px -1px 0 #000, -1px -1px 0 #000;
+}
