@@ -2,197 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Child Soldiers and Youth in Armed Conflict</title>
 
-  <!-- Fonts to match the orange pages -->
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ===== Page base (deep purple) ===== */
-    body {
-      margin: 0;
-      background:
-        radial-gradient(120% 120% at 20% 15%, rgba(255,255,255,.04), transparent 60%),
-        radial-gradient(120% 120% at 80% 85%, rgba(0,0,0,.12), transparent 55%),
-        #3d0a69;
-      color: #fff;
-      overflow-x: hidden;
-      text-align: center;
-      font-family: 'Fredoka', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
-
-    .container{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 28px 20px 64px;
-      text-align: left;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ===== Logo (same feel as home) ===== */
-    #logoWrap{
-      text-align: center;
-      margin-top: 16px;
-      cursor: pointer;
-      position: relative;
-      z-index: 5;
-    }
-    #logoWrap img{
-      max-width: min(420px, 88vw);
-      height: auto;
-      border-radius: 18px;
-      box-shadow: 0 10px 0 rgba(0,0,0,.26);
-      display: inline-block;
-    }
-
-    /* click bounce (same timing as home) */
-    .bounce { animation: bounce .6s cubic-bezier(.25,.7,.2,1.3); }
-    @keyframes bounce{
-      0%{transform:translateY(0)}
-      38%{transform:translateY(-14px)}
-      70%{transform:translateY(6px)}
-      100%{transform:translateY(0)}
-    }
-
-    /* ===== Big header – SAME style as orange pages ===== */
-    .title{
-      margin: 18px 0 22px;
-      text-align: left;
-      font-family: 'Luckiest Guy', cursive;
-      font-size: clamp(28px, 5.5vw, 64px);
-      line-height: 1.08;
-      letter-spacing: .6px;
-      color: #7cff00; /* neon green */
-      /* chunky black edge and soft glow */
-      text-shadow:
-        6px 6px 0 #000,
-        3px 3px 0 #000,
-        -2px -2px 0 #000,
-        0 0 22px rgba(124,255,0,.55);
-    }
-
-    /* ===== Back link (blue button look) ===== */
-    .menu { margin-top: clamp(10px, 2.4vw, 18px); }
-    .menu-link{
-      display:inline-block;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: clamp(18px, 2.2vw, 28px);
-      letter-spacing: .3px;
-      color: #3AAFFF;                /* bright blue */
-      text-shadow: none;             /* no shadow */
-      -webkit-text-stroke: 1px #000; /* crisp black border */
-      text-stroke: 1px #000;
-    }
-
-    /* ===== Section links list (match orange link style) ===== */
-    .list-links{
-      margin-top: clamp(14px, 3vw, 26px);
-    }
-    .list-links a{
-      display:block;
-      text-decoration:none;
-      font-weight:800;
-      font-size: clamp(22px, 3.2vw, 44px);
-      line-height:1.18;
-      margin: 18px 0 26px;
-      color:#3AAFFF;                 /* same blue */
-      text-shadow: none;             /* no shadow */
-      -webkit-text-stroke: 2px #000; /* stronger border for readability */
-      text-stroke: 2px #000;
-    }
-    .list-links a:focus-visible{ outline:3px solid #7cff00; outline-offset:4px; }
-    .list-links a:hover{ transform: translateY(-1px) scale(1.01); }
-
-    /* ===== Floating frogs (only on these pages) ===== */
-    .frog {
-      position: fixed;
-      width: 50px;
-      height: 50px;
-      z-index: 1;
-      pointer-events: none;
-      animation: floatFrogs linear infinite;
-    }
-    @keyframes floatFrogs {
-      0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
-      10%  { opacity: 1; }
-      100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
-    }
-
-    /* keep links tappable above frogs */
-    .container, .menu, .menu a, .list-links, .list-links a{ position:relative; z-index:10; }
-  </style>
+  <!-- Same fonts you use everywhere -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Path is two levels up from /humanitarian/child-soldiers/ -->
+  <link rel="stylesheet" href="../../styles.css?v=12" />
 </head>
-<body>
 
-  <!-- Clickable logo with ribbit -->
-  <div id="logoWrap">
-    <img src="images/IMG_4829.jpeg" alt="LilyPad Corp Logo">
-  </div>
+<!-- Make this page use the purple look -->
+<body class="purple-page">
+  <div class="cross" aria-hidden="true">+</div>
 
   <main class="container">
-    <!-- SAME header look as orange pages -->
-    <h1 class="title">Child Soldiers and Youth in Armed Conflict</h1>
+
+    <!-- Big header styled like the orange page -->
+    <h1 class="title" data-text="Child Soldiers and Youth in Armed Conflict">
+      Child Soldiers and Youth in Armed Conflict
+    </h1>
 
     <!-- Back to Humanitarian menu -->
-    <nav class="menu" aria-label="Back">
-      <a class="menu-link" href="../index.html">← Back to Humanitarian Politics</a>
+    <nav class="menu" style="margin-top: clamp(10px, 2.4vw, 18px);">
+      <a class="menu-link bubble-blue" href="../index.html">← Back to Humanitarian Politics</a>
     </nav>
 
-    <!-- Section links -->
+    <!-- Section links (blue, no glow, with black outline) -->
     <nav class="list-links" aria-label="Sections">
-      <a href="evolution.html">• The Evolution of Child Soldiering</a>
-      <a href="definition.html">• The Modern Definition of a Child Soldier</a>
-      <a href="recruitment.html">• Armed Groups and Recruitment Strategies</a>
-      <a href="drivers.html">• Social, Economic, and Political Drivers</a>
-      <a href="law-crc.html">• International Law, Geneva Conventions and the CRC</a>
-      <a href="icc-rome.html">• Rome Statute and the ICC, Prosecuting Recruitment</a>
+      <a class="neon-link" href="evolution.html">• The Evolution of Child Soldiering</a>
+      <a class="neon-link" href="definition.html">• The Modern Definition of A Child Soldier</a>
+      <a class="neon-link" href="recruitment.html">• Armed Groups and Recruitment Strategies</a>
+      <a class="neon-link" href="drivers.html">• Social, Economic, and Political Drivers</a>
+      <a class="neon-link" href="law-crc.html">• International Law, Geneva Conventions and the CRC</a>
+      <a class="neon-link" href="icc-rome.html">• Rome Statute and the ICC, Prosecuting Recruitment</a>
     </nav>
   </main>
 
-  <!-- Ribbit audio -->
+  <!-- Frog sound (file lives in this folder’s images/) -->
   <audio id="ribbit" preload="auto">
-    <source src="images/Frog%203.mp3" type="audio/mpeg">
+    <source src="images/Frog%203.mp3" type="audio/mpeg" />
   </audio>
 
   <script>
-    const logoWrap = document.getElementById('logoWrap');
-    const ribbitEl = document.getElementById('ribbit');
-
-    // play ribbit + bounce on logo
-    if (logoWrap && ribbitEl) {
-      logoWrap.addEventListener('click', async () => {
-        logoWrap.classList.remove('bounce');
-        void logoWrap.offsetWidth; // restart animation
-        logoWrap.classList.add('bounce');
-        try { ribbitEl.currentTime = 0; await ribbitEl.play(); } catch {}
-      });
-    }
-
-    // try autoplay; if blocked, play on first interaction
-    window.addEventListener('load', async () => {
-      try { ribbitEl.currentTime = 0; await ribbitEl.play(); }
-      catch {
-        const once = () => { ribbitEl.currentTime = 0; ribbitEl.play().catch(()=>{}); window.removeEventListener('pointerdown', once, {once:true}); };
-        window.addEventListener('pointerdown', once, {once:true});
+    // Autoplay on load; if blocked, play on first interaction
+    (function () {
+      const ribbit = document.getElementById('ribbit');
+      async function playRibbit() {
+        try { ribbit.currentTime = 0; await ribbit.play(); } catch (e) {}
       }
-    });
-
-    // floating frogs generator (uses your uploaded name: frog-icon.png.jpg)
-    function createFrog() {
-      const frog = document.createElement('img');
-      frog.src = 'images/frog-icon.png.jpg';
-      frog.className = 'frog';
-      const size = Math.random() * 30 + 30; // 30–60px
-      frog.style.width = size + 'px';
-      frog.style.left = Math.random() * window.innerWidth + 'px';
-      frog.style.animationDuration = (Math.random() * 5 + 5) + 's';
-      document.body.appendChild(frog);
-      setTimeout(() => frog.remove(), 10000);
-    }
-    setInterval(createFrog, 1500);
+      window.addEventListener('load', playRibbit, { once: true });
+      window.addEventListener('pointerdown', playRibbit, { once: true });
+      window.addEventListener('keydown', playRibbit, { once: true });
+    })();
   </script>
 </body>
 </html>
