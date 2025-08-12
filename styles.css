@@ -387,3 +387,45 @@ h3,
   text-shadow: none !important; /* Remove any shadow */
   font-family: 'Fredoka', sans-serif; /* Match font style of orange menu links */
 }
+/* ===== Child‑Soldiers purple version – make header & links match orange look ===== */
+.purple-page{
+  /* deep purple backdrop with gentle vignette */
+  margin:0;
+  background:
+    radial-gradient(120% 120% at 20% 15%, rgba(255,255,255,.04), transparent 60%),
+    radial-gradient(120% 120% at 80% 85%, rgba(0,0,0,.12), transparent 55%),
+    #3d0a69;   /* base purple */
+  color:#fff;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* Make the big header match the orange page style (yellow with black edge) */
+.purple-page .title{
+  font-family: 'Luckiest Guy', cursive;
+  text-transform: uppercase;
+  color: #ffe400;                 /* yellow fill */
+  letter-spacing: .5px;
+  line-height: 1.05;
+  text-shadow:                     /* chunky black border + soft glow */
+    0 0 0 #000, 1px 1px 0 #000, -1px 1px 0 #000,
+    1px -1px 0 #000, -1px -1px 0 #000, 0 6px 0 #000,
+    0 0 22px rgba(0,0,0,.35);
+}
+
+/* Make the section links look like the blue menu links on orange */
+.purple-page .list-links a{
+  display:block;
+  margin: 18px 0 28px;
+  font-weight: 800;
+  font-size: clamp(22px, 3.2vw, 44px);
+  line-height: 1.18;
+  text-decoration: none;
+  color: var(--blue);                 /* same blue */
+  -webkit-text-stroke: 2px #000;      /* crisp black edge for readability */
+  text-shadow: none;                   /* no drop shadow */
+}
+.purple-page .list-links a:hover,
+.purple-page .list-links a:focus{
+  transform: translateY(-1px) scale(1.01);
+}
