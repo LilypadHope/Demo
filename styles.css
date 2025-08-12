@@ -364,3 +364,26 @@ h3,
     -webkit-text-stroke: 1px black;
   }
 }
+/* ===== Purple Page Fix to Match Orange Page Style ===== */
+
+/* Match section headers on purple background to orange header style */
+.purple-page h1,
+.purple-page h2,
+.purple-page h3 {
+  color: #00a2ff; /* Same blue as orange page text */
+  font-weight: bold;
+  -webkit-text-stroke: 1.5px black; /* Bold black outline for better readability */
+  text-shadow: none; /* Remove old green glow or shadow */
+  font-family: 'Luckiest Guy', sans-serif; /* Match orange header font */
+  text-transform: uppercase; /* Same styling as orange header */
+}
+
+/* Match blue links to orange page style with heavier stroke */
+.purple-page a,
+.purple-page .menu-link {
+  color: #00a2ff !important; /* Same vivid blue */
+  -webkit-text-stroke: 1.5px black; /* Stronger border for visibility */
+  font-weight: bold;
+  text-shadow: none !important; /* Remove any shadow */
+  font-family: 'Fredoka', sans-serif; /* Match font style of orange menu links */
+}
