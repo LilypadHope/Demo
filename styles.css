@@ -318,3 +318,24 @@ a:focus-visible{ outline:3px solid var(--neon-green); outline-offset:4px; }
 .list-links a { position: relative; z-index: 50; pointer-events: auto; }
 
 .hero, #logoWrap { position: relative; z-index: 1; }  /* logo stays under menu area */
+
+/* Remove text shadow from blue menu links on home screen */
+.menu-link.bubble-blue {
+  text-shadow: none !important;
+  color: #3AAFFF !important; /* lighter, brighter blue for contrast */
+}
+
+/* Remove shadow from blue text across pages */
+a,
+h2,
+h3 {
+  text-shadow: none !important;
+  color: #3AAFFF !important; /* same lighter blue */
+}
+
+/* Remove shadow from blue links in second-screen/submenu areas */
+.submenu a,
+.page-links a {
+  text-shadow: none !important;
+  color: #3AAFFF !important;
+}
