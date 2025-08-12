@@ -7,19 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
-<header class="hero">
-  <div id="logoWrap" class="logo-wrap" role="button" tabindex="0" aria-label="Play ribbit">
-    <img src="images/IMG_4829.jpeg" alt="The LilyPad Corp logo" class="logo" />
-  </div>
-
-  <!-- NEW: animated motto line -->
-  <p class="motto">
-    <span class="motto-reveal">There's a <span class="hop">hop</span> in hope!</span>
-  </p>
-
-  <p class="tagline bubble-green">Let’s learn<br/>something new!</p>
-</header>
 <body class="home bg-orange">
 
   <!-- background effects -->
@@ -37,14 +24,20 @@
     <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
   </div>
 
-  <!-- logo + sound -->
+  <!-- logo + motto + tagline (SINGLE header) -->
   <header class="hero">
     <div id="logoWrap" class="logo-wrap" role="button" tabindex="0" aria-label="Play ribbit">
       <img src="images/IMG_4829.jpeg" alt="The LilyPad Corp logo" class="logo" />
     </div>
 
+    <!-- animated motto line -->
+    <p class="motto">
+      <span class="motto-reveal">There's a <span class="hop">hop</span> in hope!</span>
+    </p>
+
     <p class="tagline bubble-green">Let’s learn<br/>something new!</p>
-    
+  </header>
+
   <!-- main menu -->
   <main class="container">
     <nav class="menu" aria-label="Main sections">
@@ -68,8 +61,14 @@
     }
 
     // On logo click or keyboard
-    logo.addEventListener('click', () => { logo.classList.add('bounce'); playRibbit(); setTimeout(()=>logo.classList.remove('bounce'), 600); });
-    logo.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); logo.click(); }});
+    logo.addEventListener('click', () => {
+      logo.classList.add('bounce');
+      playRibbit();
+      setTimeout(()=>logo.classList.remove('bounce'), 600);
+    });
+    logo.addEventListener('keydown', (e)=>{
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); logo.click(); }
+    });
 
     // Try autoplay, then fall back to first user interaction
     window.addEventListener('load', async () => {
