@@ -4,22 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Refugee and Asylum Law</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=1" />
+
+  <!-- Same fonts you use everywhere -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Path is two levels up from /humanitarian/child-soldiers/ -->
+  <link rel="stylesheet" href="../../styles.css?v=12" />
 </head>
+
+<!-- Make this page use the purple look -->
 <body class="purple-page">
   <div class="cross" aria-hidden="true">+</div>
 
   <main class="container">
-    <h1 class="title">Refugee and Asylum Law</h1>
 
+    <!-- Big header styled like the orange page -->
+    <h1 class="title" data-text="Child Soldiers and Youth in Armed Conflict">
+      Refugee and Asylum Law
+    </h1>
+
+    <!-- Back to Humanitarian menu -->
     <nav class="menu" style="margin-top: clamp(10px, 2.4vw, 18px);">
-      <a class="menu-link bubble-blue" href="index.html">← Back to Humanitarian Politics</a>
+      <a class="menu-link bubble-blue" href="../index.html">← Back to Humanitarian Politics</a>
     </nav>
 
-    <section class="read-body">
-      <p><!-- 1000+ words go here --></p>
-    </section>
+    <!-- Section links (blue, no glow, with black outline) -->
+
   </main>
+
+  <!-- Frog sound (file lives in this folder’s images/) -->
+  <audio id="ribbit" preload="auto">
+    <source src="images/Frog%203.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    // Autoplay on load; if blocked, play on first interaction
+    (function () {
+      const ribbit = document.getElementById('ribbit');
+      async function playRibbit() {
+        try { ribbit.currentTime = 0; await ribbit.play(); } catch (e) {}
+      }
+      window.addEventListener('load', playRibbit, { once: true });
+      window.addEventListener('pointerdown', playRibbit, { once: true });
+      window.addEventListener('keydown', playRibbit, { once: true });
+    })();
+  </script>
 </body>
 </html>
