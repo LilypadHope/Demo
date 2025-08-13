@@ -1,83 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Modern Definition of A Child Soldier</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Modern Definition of A Child Soldier</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../styles.css?v=10">
-
-<style>
-  body.bg-purple {
-    margin: 0;
-    background: #3b0066; /* deep purple */
-    font-family: Georgia, serif;
-    color: #1e90ff; /* medium hue blue */
-    font-weight: bold;
-    -webkit-text-stroke: 1px black; /* black outline */
-  }
-
-  .content {
-    max-width: 75ch;
-    margin: 20px auto 12vh;
-    font-size: 1.06rem;
-    line-height: 1.6;
-  }
-
-  .hero-img {
-    width: 100%;
-    max-width: 980px;
-    margin: 10px auto 18px;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,.25);
-    height: auto;
-  }
-
-  .menu-link {
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #1e90ff;
-    font-weight: bold;
-    -webkit-text-stroke: 1px black;
-  }
-</style>
+  <!-- Use the same global styles you already have -->
+  <link rel="stylesheet" href="../../styles.css?v=10" />
 </head>
+<body class="bg-orange">
+  <div class="cross" aria-hidden="true">+</div>
 
-<body class="bg-purple">
-<audio id="frogSound" src="../../frog.mp3" preload="auto"></audio>
+  <!-- Ribbit audio (correct relative path from this folder) -->
+  <audio id="ribbit" preload="auto">
+    <source src="../../images/Frog%203.mp3" type="audio/mpeg" />
+  </audio>
 
-<div class="cross" aria-hidden="true">+</div>
+  <main class="container">
+    <!-- Top image (uses your read-hero styling) -->
+    <img class="read-hero" src="images/IMG_4805.jpeg" alt="Definition illustration" />
 
-<main class="container">
-  <img class="hero-img" src="images/IMG_4805.jpeg" alt="Definition illustration">
+    <!-- Blue Georgia text with black outline via .read-body in styles.css -->
+    <section class="read-body">
+      <p>Despite international condemnation, the legal and operational definition of a “child soldier” remains one of the most contested and politically manipulated terms in global humanitarian law. It is deceptively simple on the surface yet highly complex in practice. The term broadly refers to any individual under the age of 18 who is recruited or used by an armed force or group in any capacity, but the implications of this definition vary dramatically depending on legal jurisdiction, ideological bias, and the agenda of the entity applying it. The United Nations Convention on the Rights of the Child (CRC), ratified by nearly every country in the world (except the United States), defines a child as anyone under the age of 18. The CRC’s Optional Protocol on the Involvement of Children in Armed Conflict (OPAC), adopted in 2000, requires states to “take all feasible measures” to ensure that children under 18 are not compulsorily recruited into armed forces and prohibits any use of children under 18 in direct hostilities. While the intention is clear, the language, particularly “all feasible measures”, creates legal gray zones that continue to be exploited. The Paris Principles (2007), a non-binding layout adopted by over 100 countries and widely used by humanitarian agencies, expands the definition of a child soldier to include not just combatants, but any child used by armed groups in roles such as cooks, porters, spies, informants, messengers, and sexual slaves. This broadened scope is critical for identifying the hidden architecture of child involvement in warfare, yet it introduces a dangerous interpretive elasticity. Governments and even NGOs have occasionally leveraged this definition to inflate statistics, push for donor funding, or cast ideological opponents in the worst possible light. Not every child associated with an armed group is exploited to the same degree, yet under the current layout, even voluntarily aligned 17-year-old militia members, capable, weaponized, and politically motivated, are treated as indistinguishably victimized.</p>
 
-  <section class="content long-text">
-    <p>
-      Despite international condemnation, the legal and operational definition of a “child soldier” remains one of the most contested and politically manipulated terms in global humanitarian law. It is deceptively simple on the surface yet highly complex in practice. The term broadly refers to any individual under the age of 18 who is recruited or used by an armed force or group in any capacity, but the implications of this definition vary dramatically depending on legal jurisdiction, ideological bias, and the agenda of the entity applying it. The United Nations Convention on the Rights of the Child (CRC), ratified by nearly every country in the world (except the United States), defines a child as anyone under the age of 18. The CRC’s Optional Protocol on the Involvement of Children in Armed Conflict (OPAC), adopted in 2000, requires states to “take all feasible measures” to ensure that children under 18 are not compulsorily recruited into armed forces and prohibits any use of children under 18 in direct hostilities. While the intention is clear, the language, particularly “all feasible measures”, creates legal gray zones that continue to be exploited. The Paris Principles (2007), a non-binding layout adopted by over 100 countries and widely used by humanitarian agencies, expands the definition of a child soldier to include not just combatants, but any child used by armed groups in roles such as cooks, porters, spies, informants, messengers, and sexual slaves. This broadened scope is critical for identifying the hidden architecture of child involvement in warfare, yet it introduces a dangerous interpretive elasticity. Governments and even NGOs have occasionally leveraged this definition to inflate statistics, push for donor funding, or cast ideological opponents in the worst possible light. Not every child associated with an armed group is exploited to the same degree, yet under the current layout, even voluntarily aligned 17-year-old militia members, capable, weaponized, and politically motivated, are treated as indistinguishably victimized.
-    </p>
+      <p>Another layer of ambiguity emerges in the classification of “association” versus “enlistment.” Many modern conflicts, especially those involving asymmetric warfare, tribal militias, or gangs, do not involve formal enlistment processes. Children are simply absorbed into armed groups by proximity, kinship, or community collapse. In Afghanistan, Somalia, Nigeria, and Gaza, boys often begin participating in logistical support or ideological rallies as early as age 10, without necessarily crossing the threshold into armed combat until years later. By the time they are armed, they may no longer be seen by their community, or themselves, as children at all. International law still classifies them as such, but their functional and psychological roles often diverge from humanitarian assumptions. A further complication is the age ambiguity itself. In many conflict-affected regions, birth registration is nonexistent or unreliable, and children may not know their actual age. Armed groups exploit this, and so do governments. Accusations of recruiting child soldiers can be leveled politically even when individuals are well over 18 but appear youthful. In Uganda and Congo, for instance, facial appearance has been used as evidence of victim status, leading to problematic legal inconsistencies. Meanwhile, female child soldiers are often completely unrecognized due to their domestic or sexual exploitation roles, suffering trauma equal to or greater than male counterparts, yet excluded from DDR programs because they weren’t seen holding rifles.</p>
 
-    <p>
-      Another layer of ambiguity emerges in the classification of “association” versus “enlistment.” Many modern conflicts, especially those involving asymmetric warfare, tribal militias, or gangs, do not involve formal enlistment processes. Children are simply absorbed into armed groups by proximity, kinship, or community collapse. In Afghanistan, Somalia, Nigeria, and Gaza, boys often begin participating in logistical support or ideological rallies as early as age 10, without necessarily crossing the threshold into armed combat until years later. By the time they are armed, they may no longer be seen by their community, or themselves, as children at all. International law still classifies them as such, but their functional and psychological roles often diverge from humanitarian assumptions. A further complication is the age ambiguity itself. In many conflict-affected regions, birth registration is nonexistent or unreliable, and children may not know their actual age. Armed groups exploit this, and so do governments. Accusations of recruiting child soldiers can be leveled politically even when individuals are well over 18 but appear youthful. In Uganda and Congo, for instance, facial appearance has been used as evidence of victim status, leading to problematic legal inconsistencies. Meanwhile, female child soldiers are often completely unrecognized due to their domestic or sexual exploitation roles, suffering trauma equal to or greater than male counterparts, yet excluded from DDR programs because they weren’t seen holding rifles.
-    </p>
+      <p>Another controversial aspect is the involuntary conscription of ideological identity. When youth are taught from an early age to view martyrdom, armed resistance, or revenge as sacred duty, their “voluntary” participation in armed groups becomes a morally gray area. Is a 16-year-old indoctrinated in jihadist theology and asking to fight a victim or a threat? Is a child raised in a collapsed state with no family or education and joining a gang truly “enlisted”? These cases demand moral discernment, not just humanitarian slogans. In the United States and several other nations, enlistment at age 17 with parental consent remains legal, yet international criticism of this practice has grown, especially from European NGOs. But this critique often overlooks the profound difference between regulated volunteer service in a national military versus the abusive coercion by terrorist groups or militias in failed states. Not all forms of youth military involvement are morally equivalent, and conflating them undermines efforts to prioritize actual victims of abuse. The global discourse surrounding the definition of a child soldier continues to suffer from mission creep, weaponized ambiguity, and ideological distortion. The path forward must prioritize moral clarity, functional analysis, and cultural realism. Protecting children in warzones is a just cause, but protecting the definition itself from political misuse is a foundational step toward serious accountability.</p>
 
-    <p>
-      Another controversial aspect is the involuntary conscription of ideological identity. When youth are taught from an early age to view martyrdom, armed resistance, or revenge as sacred duty, their “voluntary” participation in armed groups becomes a morally gray area. Is a 16-year-old indoctrinated in jihadist theology and asking to fight a victim or a threat? Is a child raised in a collapsed state with no family or education and joining a gang truly “enlisted”? These cases demand moral discernment, not just humanitarian slogans. In the United States and several other nations, enlistment at age 17 with parental consent remains legal, yet international criticism of this practice has grown, especially from European NGOs. But this critique often overlooks the profound difference between regulated volunteer service in a national military versus the abusive coercion by terrorist groups or militias in failed states. Not all forms of youth military involvement are morally equivalent, and conflating them undermines efforts to prioritize actual victims of abuse. The global discourse surrounding the definition of a child soldier continues to suffer from mission creep, weaponized ambiguity, and ideological distortion. The path forward must prioritize moral clarity, functional analysis, and cultural realism. Protecting children in warzones is a just cause, but protecting the definition itself from political misuse is a foundational step toward serious accountability.
-    </p>
+      <p><a class="menu-link bubble-blue" href="index.html">← Back to Child Soldiers</a></p>
+    </section>
+  </main>
 
-    <p><a class="menu-link bubble-blue" href="index.html">← Back to Child Soldiers</a></p>
-  </section>
-</main>
-
-<script>
-  const frogSound = document.getElementById('frogSound');
-  window.addEventListener('load', () => {
-    frogSound.play().catch(() => {}); // play on load
-  });
-</script>
-
+  <script>
+    // Autoplay if allowed; otherwise play on first tap/click
+    const ribbit = document.getElementById('ribbit');
+    window.addEventListener('load', async () => {
+      try { ribbit.currentTime = 0; await ribbit.play(); }
+      catch {
+        const once = () => { ribbit.currentTime = 0; ribbit.play().catch(()=>{}); window.removeEventListener('pointerdown', once); };
+        window.addEventListener('pointerdown', once, { once: true });
+      }
+    });
+  </script>
 </body>
 </html>
