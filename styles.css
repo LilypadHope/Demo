@@ -472,3 +472,25 @@ h3,
 .mini-logo:hover {
   transform: scale(1.1);
 }
+
+/* Mini logo link positioning */
+.mini-logo-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  z-index: 999;
+}
+
+/* Mini logo styling */
+.mini-logo {
+  height: 32px; /* slightly bigger, still small */
+  width: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+}
+
+.mini-logo:hover {
+  transform: scale(1.1);
+}
