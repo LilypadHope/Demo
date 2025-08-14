@@ -429,3 +429,24 @@ h3,
 .purple-page .list-links a:focus{
   transform: translateY(-1px) scale(1.01);
 }
+/* Mini logo link positioning */
+.mini-logo-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  z-index: 999;
+}
+
+/* Mini logo styling */
+.mini-logo {
+  height: 50px; /* smaller than homepage logo */
+  width: auto;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+}
+
+.mini-logo:hover {
+  transform: scale(1.05);
+}
