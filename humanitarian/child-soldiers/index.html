@@ -1,61 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Child Soldiers and Youth in Armed Conflict</title>
-
-  <!-- Same fonts you use everywhere -->
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet" />
-  <!-- Path is two levels up from /humanitarian/child-soldiers/ -->
-  <link rel="stylesheet" href="../../styles.css?v=12" />
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css?v=14">
 </head>
 
-<!-- Make this page use the purple look -->
 <body class="purple-page">
+  <!-- mini logo to Home -->
+  <a class="mini-logo-link" href="../../index.html" aria-label="Home">
+    <img class="mini-logo" src="../../images/IMG_4829.jpeg" alt="LilyPad logo">
+  </a>
+
   <div class="cross" aria-hidden="true">+</div>
-<a href="../../index.html" class="mini-logo-link">
-  <img src="../../images/IMG_4829.jpeg" alt="LilyPad Corp Logo" class="mini-logo">
-</a>
+
   <main class="container">
+    <!-- Yellow headline (styled by .purple-page .title in styles.css) -->
+    <h1 class="title hero">Child Soldiers and Youth in Armed Conflict</h1>
 
-    <!-- Big header styled like the orange page -->
-    <h1 class="title" data-text="Child Soldiers and Youth in Armed Conflict">
-      Child Soldiers and Youth in Armed Conflict
-    </h1>
-
-    <!-- Back to Humanitarian menu -->
-    <nav class="menu" style="margin-top: clamp(10px, 2.4vw, 18px);">
+    <!-- Back to Humanitarian Politics -->
+    <nav class="menu" style="margin-top:clamp(14px,2.4vw,20px);">
       <a class="menu-link bubble-blue" href="../index.html">← Back to Humanitarian Politics</a>
     </nav>
 
-    <!-- Section links (blue, no glow, with black outline) -->
+    <!-- Section links (blue, outlined) -->
     <nav class="list-links" aria-label="Sections">
-      <a class="neon-link" href="evolution.html">• The Evolution of Child Soldiering</a>
-      <a class="neon-link" href="definition.html">• The Modern Definition of A Child Soldier</a>
-      <a class="neon-link" href="recruitment.html">• Armed Groups and Recruitment Strategies</a>
-      <a class="neon-link" href="drivers.html">• Social, Economic, and Political Drivers</a>
-      <a class="neon-link" href="law-crc.html">• International Law, Geneva Conventions and the CRC</a>
-      <a class="neon-link" href="icc-rome.html">• Rome Statute and the ICC, Prosecuting Recruitment</a>
+      <a class="menu-link bubble-blue" href="evolution.html">• The Evolution of Child Soldiering</a>
+      <a class="menu-link bubble-blue" href="definition.html">• The Modern Definition of A Child Soldier</a>
+      <a class="menu-link bubble-blue" href="recruitment.html">• Armed Groups and Recruitment Strategies</a>
+      <a class="menu-link bubble-blue" href="drivers.html">• Social, Economic, and Political Drivers</a>
+      <a class="menu-link bubble-blue" href="law-crc.html">• International Law, Geneva Conventions and the CRC</a>
+      <a class="menu-link bubble-blue" href="icc-rome.html">• Rome Statute and the ICC, Prosecuting Recruitment</a>
     </nav>
   </main>
-
-  <!-- Frog sound (file lives in this folder’s images/) -->
-  <audio id="ribbit" preload="auto">
-    <source src="images/Frog%203.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script>
-    // Autoplay on load; if blocked, play on first interaction
-    (function () {
-      const ribbit = document.getElementById('ribbit');
-      async function playRibbit() {
-        try { ribbit.currentTime = 0; await ribbit.play(); } catch (e) {}
-      }
-      window.addEventListener('load', playRibbit, { once: true });
-      window.addEventListener('pointerdown', playRibbit, { once: true });
-      window.addEventListener('keydown', playRibbit, { once: true });
-    })();
-  </script>
 </body>
 </html>
