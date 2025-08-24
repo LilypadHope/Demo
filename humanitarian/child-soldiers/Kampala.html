@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The African Union and the Kampala Convention</title>
+
+  <!-- Use the same global styles you already have -->
+  <link rel="stylesheet" href="../../styles.css?v=10" />
+</head>
+<body class="bg-orange">
+  <div class="cross" aria-hidden="true">+</div>
+
+  <!-- Ribbit audio (correct relative path from this folder) -->
+  <audio id="ribbit" preload="auto">
+    <source src="../../images/Frog%203.mp3" type="audio/mpeg" />
+  </audio>
+<a href="../../index.html" class="mini-logo-link">
+  <img src="../../images/IMG_111.jpeg" alt="LilyPad Corp Logo" class="mini-logo">
+</a>
+  <main class="container">
+    <!-- Top image (uses your read-hero styling) -->
+    <img class="read-hero" src="images/IMG_111.jpeg" alt="Definition illustration" />
+
+    <!-- Blue Georgia text with black outline via .read-body in styles.css -->
+    <section class="read-content">
+      <p> Across Africa, the scourge of child soldier recruitment continues to undermine peace, stability, and human dignity. In response, the African Union has developed an increasingly sophisticated array of legal and institutional projects to confront this issue. Chief among these are the Peace and Security Council (PSC), the Kampala Convention, and the African Charter on the Rights and Welfare of the Child. Yet while the structures of normative protection exist, the task of domesticating and operationalizing they be remains inconsistently fulfilled among member states. The African Union’s Peace and Security Council serves as the continental body’s primary mechanism for overseeing matters of conflict and security, including the protection of children in armed conflict. Its recent sessions reflect a renewed emphasis on child-centric disarmament, demobilization, and reintegration (DDR) strategies. A growing number of member states have acknowledged the unique needs of child soldiers, particularly the necessity of combining psychosocial healing with formal education, community reintegration, and vocational training. In an effort to move beyond rhetorical commitments, recent PSC communiqués have urged the institutionalization of child protection into all phases of peacebuilding, from early-warning systems to post-conflict rehabilitation efforts. The Council’s evolving agenda has begun to recognize the layered trauma borne by these children and the moral imperative to restore them to a life of peace and human flourishing.  At the heart of the region’s legal architecture lies the Kampala Convention, a groundbreaking continental treaty adopted by the African Union in 2009. It remains the only legally binding regional instrument in the world focused on the protection of internally displaced persons (IDPs), explicitly acknowledging conflict, climate change, and development as drivers of displacement. In many conflicts across the continent, the recruitment of child soldiers occurs not at the warfront, but within the shadows of displacement camps and marginalized settlements where oversight is minimal and desperation is acute. Thirty-four African countries have ratified the Convention, yet only a small fraction have fully transposed its provisions into national legislation. Among them, Niger, Chad, and the Republic of Congo have taken the lead, establishing domestic laws that mirror the Convention’s principles and laying out mechanisms for accountability and enforcement. Despite these promising examples, most states lag in implementation. Some have ratified the treaty without establishing enforcement bodies or budgeting for child protection programming. Others struggle with legislative bottlenecks, fragmented institutions, or post-conflict political paralysis. Even where laws exist on paper, the absence of regulatory guidelines and public awareness has left large populations, especially displaced children, vulnerable to exploitation. Faith-based organizations and humanitarian observers have noted that the lack of moral will, not legal tools, often lies at the root of implementation failures. The moral obligation to defend the defenseless must precede bureaucratic reform, especially in countries where spiritual leadership continues to influence civil society.
+
+content">
+      <p>Complementing the Kampala Convention is the African Charter on the Rights and Welfare of the Child, which firmly prohibits the recruitment of any individual under the age of eighteen. This Charter affirms the inherent dignity and worth of every child and calls for the preservation of their identity, family life, and access to education. Most African Union states have now ratified the Charter, though domestic application remains uneven. Some national armies and local militias continue to circumvent its requirements, whether through poor birth registration systems, selective enforcement, or informal recruitment practices justified by emergency powers. Particularly vulnerable are children in fragile states where birth records are non-existent and age verification is subjective, leaving countless youth open to conscription or abduction. The Optional Protocol to the Convention on the Rights of the Child on the Involvement of Children in Armed Conflict (OPAC) sets an international legal baseline that aligns with African Union standards. It mandates the absolute prohibition of recruitment and participation of children under eighteen in hostilities. While widely ratified, it still encounters significant implementation gaps in conflict zones. Some African states maintain loopholes for so-called “voluntary enlistment” at ages below eighteen, creating space for ambiguity, coercion, or manipulation. In certain regions, children are drawn into armed movements not through formal conscription but through promises of food, protection, or revenge for lost family members, a form of emotional trafficking that eludes the eyes of many legal systems. Notably, the United Nations and African Union have developed action plans with specific countries and armed groups to end the use of child soldiers. These plans require a series of enforceable steps, legal prohibitions, command orders, child release protocols, and structured reintegration pathways. While some nations have adhered to these commitments in good faith, others have only partially complied or failed to report progress altogether. Reintegration remains the weakest link in many contexts, often due to insufficient funding, stigma against returning youth, or gender-blind programming that fails to address the needs of girls who have endured captivity and assault. Without full social and spiritual restoration, these children remain in limbo, no longer combatants, but not yet healed.
+
+content">
+      <p>A striking trend in 2025 has been the rise of peer-led regional forums aimed at cross-pollination of good practices. These forums have allowed states at various stages of implementation to learn from one another’s models. Countries such as South Sudan, which has struggled with endemic child soldier recruitment, have begun to draw upon the reintegration models of nations like Sierra Leone, where faith communities and trauma-informed schools have played a pivotal role. Yet, even the best plans falter without the cultural work of reintegration, healing not just laws but the wounds etched into the hearts of children and communities alike. The path forward requires more than legal compliance; it calls for a reorientation of regional policy toward a theology of protection and a politics of care. To truly eliminate the use of child soldiers, Africa’s legal instruments must be embedded within a moral culture that treasures innocence, elevates peace over power, and invests in the long-term restoration of wounded youth. Regional treaties such as the Kampala Convention and the African Children’s Charter hold great promise, but their effectiveness will be measured not by the number of ratifications, but by the lives rescued, healed, and restored to human dignity.
+                                             ☦︎
+
+
+      <p>
+      <p><a class="menu-link bubble-blue" href="index.html">← Back to Child Soldiers</a></p>
+    </section>
+  </main>
+
+  <script>
+    // Autoplay if allowed; otherwise play on first tap/click
+    const ribbit = document.getElementById('ribbit');
+    window.addEventListener('load', async () => {
+      try { ribbit.currentTime = 0; await ribbit.play(); }
+      catch {
+        const once = () => { ribbit.currentTime = 0; ribbit.play().catch(()=>{}); window.removeEventListener('pointerdown', once); };
+        window.addEventListener('pointerdown', once, { once: true });
+      }
+    });
+  </script>
+</body>
+</html>
 
