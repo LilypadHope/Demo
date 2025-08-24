@@ -10,8 +10,13 @@
 </head>
 <body class="bg-orange">
   <!-- Mini logo → Home (root-relative so it works from ANY folder) -->
+<!-- Mini logo → Home, with safe root-relative path and jpg fallback -->
 <a class="mini-logo-link" href="/index.html" aria-label="Home">
-  <img class="mini-logo" src="/images/IMG_4829.jpeg" alt="LilyPad logo">
+  <img
+    class="mini-logo"
+    src="/images/IMG_4829.jpeg?v=1"          <!-- primary (exact filename + cache-bust) -->
+    alt="LilyPad logo"
+    onerror="this.onerror=null;this.src='/images/IMG_4829.jpg?v=1';" />
 </a>
 
 <!-- centered + sign -->
